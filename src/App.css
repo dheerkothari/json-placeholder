@@ -11,13 +11,26 @@ ul {
 }
 
 li {
+    list-style: none;
     display: list-item;
     text-align: -webkit-match-parent;
     padding: 10px;
     background: #fff;
     margin-bottom: 10px;
     opacity: .8;
+}
+li>div>
     
+button {
+padding: 10px 5px;
+background: #ccc;
+color: #000;
+opacity: .8;
+width: 150px;
+margin: 0 auto;
+border: none;
+display: block;
+
 }
 
 body {

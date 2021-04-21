@@ -2,6 +2,7 @@ import "../App.css";
 import Post from "../components/post";
 import { Component } from "react";
 import axios from "axios";
+import { withRouter } from "react-router";
 
 class Posts extends Component {
   constructor() {
@@ -24,16 +25,27 @@ class Posts extends Component {
     });
   };
 
+  handleClick = (id) => {
+    
+    this.props.history.push("/posts/" + id);
+  };
+
   render = () =>
     this.state.loading ? (
       <h1>loading...</h1>
     ) : (
-        <ul>
-          {this.state.posts.map(({ id, title, body }) => (
-            <Post key={id} id={id} title={title} body={body} />
-          ))}
-        </ul>
+      <ul>
+        {this.state.posts.map(({ id, title, body }) => (
+          <Post
+            onClick={() => this.handleClick(id)}
+            key={id}
+            id={id}
+            title={title}
+            body={body}
+          />
+        ))}
+      </ul>
     );
 }
 
-export default Posts;
+export default withRouter(Posts);

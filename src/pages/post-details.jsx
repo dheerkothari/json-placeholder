@@ -20,7 +20,7 @@ const PostDetails = () => {
       });
   }, []);
 
-  return <Post  id={post.id} title={post.title} body={post.body}/>;
+  return loading ? <h1>loading...</h1> : <Post  id={post.id} title={post.title} body={post.body} hasBackButton/>;
 };
 
 export default PostDetails;
